@@ -1,15 +1,19 @@
 import React from 'react';
-import './App.css';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from "react-google-login";
-import BudgetSlider from './BudgetSlider';
 import Slider from 'react-rangeslider';
-import 'react-rangeslider/lib/index.css';
 import styled from 'styled-components';
+import 'react-rangeslider/lib/index.css';
+import './App.css';
 
-
+const DashboardContainer = styled.div `
+    display: grid;  
+    grid-gap: 5px;  
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: repeat(2, 1fr); 
+`
 const BudgetSliderDiv = styled.div `
-    width: 40%;
+    width: 90%;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -20,6 +24,14 @@ const SliderDetailsDiv = styled.div `
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
+`
+
+const ElectionDiv = styled.div `
+    width: 95%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding-top: 30px;
 `
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -95,28 +107,6 @@ class App extends React.Component {
                 >
                   Log in with Google
                 </button>
-                
-                <BudgetSliderDiv>
-
-                     <div className='slider'>
-                      <Slider
-                        min={1}
-                        max={30}
-                        value={this.state.sliderValue}
-                        onChangeStart={this.handleSliderChangeStart}
-                        onChange={this.handleSliderChange}
-                        onChangeComplete={this.handleSliderChangeComplete}
-                      />
-                      <div className='value'>{this.state.sliderValue}%</div>
-                    </div>
-
-                   <SliderDetailsDiv>
-                     <h3>Your Salary: {formatter.format(parseInt(this.state.salary))}</h3><input type="number" value={this.state.salary} onChange={this.handleSalaryChange}></input>
-                     <h3>Your Expense: {formatter.format(this.state.expense)}</h3>
-                     <h3>Your Savings: {formatter.format(this.state.savings)}</h3>
-                   </SliderDetailsDiv>
-
-                </BudgetSliderDiv>
               </div>
             )}
             onSuccess={this.responseGoogle}
@@ -127,6 +117,11 @@ class App extends React.Component {
           <div className="loggedInWrapper">
             <div className="userDetails-wrapper">
               <div className="details-wrapper">
+                
+
+                <div className="image">
+                  <img src={this.state.userDetails.imageUrl} alt={this.state.userDetails.name}/>
+                </div>
                 <GoogleLogout
                   render={renderProps => (
                     <div>
@@ -140,10 +135,6 @@ class App extends React.Component {
                   )}
                   onLogoutSuccess={this.logout}
                 />
-
-                <div className="image">
-                  <img src={this.state.userDetails.imageUrl} alt={this.state.userDetails.name}/>
-                </div>
                 <div className="name">
                   Welcome {this.state.userDetails.givenName}{" "}
                   {this.state.userDetails.familyName}
@@ -153,16 +144,43 @@ class App extends React.Component {
               <div className="bar" />
               <div className="stand" />
 
-              <div className={BudgetSliderDiv}>
+              <DashboardContainer>
+
                 <BudgetSliderDiv>
-                   <BudgetSlider/>
+                  <h3>Welcome to your Monthly Budget, {this.state.userDetails.givenName}!</h3>
+                <div className='slider'>
+                  <Slider
+                    min={1}
+                    max={30}
+                    value={this.state.sliderValue}
+                    onChangeStart={this.handleSliderChangeStart}
+                    onChange={this.handleSliderChange}
+                    onChangeComplete={this.handleSliderChangeComplete}
+                    />
+                  <div className='value'>{this.state.sliderValue}%</div>
+                </div>
+                  <SliderDetailsDiv>
+                    <h3>Your Salary: {this.state.salary ? formatter.format(parseInt(this.state.salary)) : 0}</h3>
+                    <input type="number" value={this.state.salary} onChange={this.handleSalaryChange}></input>
+                    <h3>Your Expense: {formatter.format(this.state.expense)}</h3>
+                    <h3>Your Savings: {formatter.format(this.state.savings)}</h3>
+                  </SliderDetailsDiv>
                 </BudgetSliderDiv>
-              </div>
+
+                  <ElectionDiv>
+                    <h3> Thank you, {this.state.userDetails.name}</h3>
+                    <h3> Your Election: {this.state.sliderValue}%</h3>
+                    <h3>Your Salary: {this.state.salary ? formatter.format(parseInt(this.state.salary)) : 0}</h3>
+                      <h3>Your Expense: {formatter.format(this.state.expense)}</h3>
+                      <h3>Your Savings: {formatter.format(this.state.savings)}</h3>
+                  </ElectionDiv>
+
+                </DashboardContainer>
 
             </div>
           </div>
         )}
-      </div> // App Div
+      </div>
     );
   }
 }

@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+img {
+  border-radius: 50%;
+  padding: 15px;
+}
+
 .slidecontainer {
   width: 100%; /* Width of the outside container */
 }
