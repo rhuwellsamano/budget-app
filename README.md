@@ -2,6 +2,8 @@
 
 This is a basic Budget App made with React that implements Google OAuth and React Slider.
 
+![Budget App Splash](budget-app-splash.png)
+
 ## Installation
 
 In your terminal, clone the repo down:
@@ -26,10 +28,10 @@ Alternatively, yarn start works as well:
 yarn start
 ```
 
-*Note: This is application only works on http://localhost:3000 (only on Port 3000); 
+*Note: This application only works on http://localhost:3000 (only on Port 3000); 
 CORS will block you otherwise.*
 
-Just login with yout Google Account and you're in!
+Just login with your Google Account and you're in!
 
 - Slide the Slider to alter the Election Percentage (between 1% and 30%)
 - Adjust your Salary Income (it will adjust to USD)
