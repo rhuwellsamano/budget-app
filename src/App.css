@@ -7,6 +7,20 @@ img {
   padding: 15px;
 }
 
+button {
+  color: red;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 10px 20px;
+  transition-duration: 0.6s;
+  box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 12px 0 rgba(0,0,0,0.19);
+}
+
+button:hover {
+  background-color: red; /* Green */
+  color: white;
+}
+
 .slidecontainer {
   width: 100%; /* Width of the outside container */
 }

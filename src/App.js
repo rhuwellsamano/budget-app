@@ -6,6 +6,10 @@ import styled from 'styled-components';
 import 'react-rangeslider/lib/index.css';
 import './App.css';
 
+const LoginSplash = styled.div `
+    margin: 45vh;
+`
+
 const DashboardContainer = styled.div `
     display: grid;  
     grid-gap: 5px;  
@@ -18,6 +22,11 @@ const BudgetSliderDiv = styled.div `
     outline: none;
     border-radius: 5px;
     padding: 10px 15px;
+`
+
+const UserInfo = styled.div `
+    padding-top: 20px;
+    padding-bottom: 20px;
 `
 
 const SliderDetailsDiv = styled.div `
@@ -95,23 +104,29 @@ class App extends React.Component {
     return (
       <div className="App">
         {!this.state.isUserLoggedIn && (
-          <GoogleLogin
-            clientId="59297034610-76ooi6ps7qm3krp9pt3kb1p57bku8ofb.apps.googleusercontent.com"
-            render={renderProps => (
 
-              <div>
-                <button
-                  className="button"
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  Log in with Google
-                </button>
-              </div>
-            )}
-            onSuccess={this.responseGoogle}
-            onFailure={this.responseGoogle}
-          />
+          <LoginSplash>
+            <GoogleLogin
+              clientId="59297034610-76ooi6ps7qm3krp9pt3kb1p57bku8ofb.apps.googleusercontent.com"
+              render={renderProps => (
+                
+                <div>
+                  <h2>WELCOME TO YOUR BUDGET APP!</h2>
+                  <button
+                    className="button"
+                    onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}
+                    >
+                    Log in with Google
+                  </button>
+                </div>
+              )}
+              onSuccess={this.responseGoogle}
+              onFailure={this.responseGoogle}
+              />
+            </LoginSplash>
+
+
         )}
         {this.state.isUserLoggedIn && (
           <div className="loggedInWrapper">
@@ -135,11 +150,15 @@ class App extends React.Component {
                   )}
                   onLogoutSuccess={this.logout}
                 />
-                <div className="name">
-                  Welcome {this.state.userDetails.givenName}{" "}
-                  {this.state.userDetails.familyName}
-                </div>
-                <div className="email"><i>{this.state.userDetails.email}</i></div>
+
+                <UserInfo>
+                  <div className="name">
+                    Welcome {this.state.userDetails.givenName}{" "}
+                    {this.state.userDetails.familyName}
+                  </div>
+                  <div className="email"><i>{this.state.userDetails.email}</i></div>
+                </UserInfo>
+
               </div>
               <div className="bar" />
               <div className="stand" />
@@ -168,7 +187,7 @@ class App extends React.Component {
                 </BudgetSliderDiv>
 
                   <ElectionDiv>
-                    <h3> Thank you, {this.state.userDetails.name}</h3>
+                    <h3> Thanks, {this.state.userDetails.givenName}!</h3>
                     <h3> Your Election: {this.state.sliderValue}%</h3>
                     <h3>Your Salary: {this.state.salary ? formatter.format(parseInt(this.state.salary)) : 0}</h3>
                       <h3>Your Expense: {formatter.format(this.state.expense)}</h3>
