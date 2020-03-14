@@ -1,69 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Budget App
 
-## Available Scripts
+This is a basic Budget App made with React that implements Google OAuth and React Slider.
 
-In the project directory, you can run:
+## Installation
 
-### `yarn start`
+In your terminal, clone the repo down:
+```bash
+git clone git@github.com:rhuwellsamano/budget-app.git
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Change into the budget-app directory then use the package manager npm to install the Budget App.
+```bash
+yarn install
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Usage
 
-### `yarn test`
+Run the application by entering:
+```bash
+yarn budget
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Alternatively, yarn start works as well:
+```bash
+yarn start
+```
 
-### `yarn build`
+*Note: This is application only works on http://localhost:3000 (only on Port 3000); 
+CORS will block you otherwise.*
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Just login with yout Google Account and you're in!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Slide the Slider to alter the Election Percentage (between 1% and 30%)
+- Adjust your Salary Income (it will adjust to USD)
+- Review your projected numbers in the second panel
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Possible Updates?
+I'm considering improving the CSS styling and refactoring out the code into separate components.
 
-### `yarn eject`
+## Contributing
+This is a one-off project, no contributions necessary!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# budget-app
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

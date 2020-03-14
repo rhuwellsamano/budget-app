@@ -7,7 +7,7 @@ import 'react-rangeslider/lib/index.css';
 import './App.css';
 
 const LoginSplash = styled.div `
-    margin: 45vh;
+    margin: 35vh;
 `
 
 const DashboardContainer = styled.div `
@@ -111,6 +111,7 @@ class App extends React.Component {
               render={renderProps => (
                 
                 <div>
+                  <h5 className="wiggle"><span role="img" aria-label="money">💸</span></h5>
                   <h2>WELCOME TO YOUR BUDGET APP!</h2>
                   <button
                     className="button"
@@ -187,7 +188,7 @@ class App extends React.Component {
                 </BudgetSliderDiv>
 
                   <ElectionDiv>
-                    <h3> Thanks, {this.state.userDetails.givenName}!</h3>
+                    <h3> Thanks, {this.state.userDetails.givenName}! Let's review your budget:</h3>
                     <h3> Your Election: {this.state.sliderValue}%</h3>
                     <h3>Your Salary: {this.state.salary ? formatter.format(parseInt(this.state.salary)) : 0}</h3>
                       <h3>Your Expense: {formatter.format(this.state.expense)}</h3>
