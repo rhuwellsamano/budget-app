@@ -127,14 +127,11 @@ class App extends React.Component {
               />
             </LoginSplash>
 
-
         )}
         {this.state.isUserLoggedIn && (
           <div className="loggedInWrapper">
             <div className="userDetails-wrapper">
               <div className="details-wrapper">
-                
-
                 <div className="image">
                   <img src={this.state.userDetails.imageUrl} alt={this.state.userDetails.name}/>
                 </div>
@@ -151,7 +148,6 @@ class App extends React.Component {
                   )}
                   onLogoutSuccess={this.logout}
                 />
-
                 <UserInfo>
                   <div className="name">
                     Welcome {this.state.userDetails.givenName}{" "}
@@ -159,13 +155,11 @@ class App extends React.Component {
                   </div>
                   <div className="email"><i>{this.state.userDetails.email}</i></div>
                 </UserInfo>
-
               </div>
               <div className="bar" />
               <div className="stand" />
 
               <DashboardContainer>
-
                 <BudgetSliderDiv>
                   <h3>Welcome to your Monthly Budget, {this.state.userDetails.givenName}!</h3>
                 <div className='slider'>
@@ -186,7 +180,6 @@ class App extends React.Component {
                     <h3>Your Savings: {formatter.format(this.state.savings)}</h3>
                   </SliderDetailsDiv>
                 </BudgetSliderDiv>
-
                   <ElectionDiv>
                     <h3> Thanks, {this.state.userDetails.givenName}! Let's review your budget:</h3>
                     <h3> Your Election: {this.state.sliderValue}%</h3>
@@ -194,7 +187,6 @@ class App extends React.Component {
                       <h3>Your Expense: {formatter.format(this.state.expense)}</h3>
                       <h3>Your Savings: {formatter.format(this.state.savings)}</h3>
                   </ElectionDiv>
-
                 </DashboardContainer>
 
             </div>
